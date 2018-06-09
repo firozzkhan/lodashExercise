@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="prism.css">
+    <script src="prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.core.js"></script>
+    <title>Prism</title>
+    <style>
+        .exercise {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .output {
+            background-color: #f5f2f0;
+            white-space: pre-wrap;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3 style="text-align: center">Array Methods</h3>
+        <script>
+
+        </script>
+
+        <!-- <div class="exercise">
+            <h3>Exercise : _.</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex"></span>
+                <script>
+
+                </script>
+            </div>
+        </div>           -->
+
+        <div class="exercise">
+            <h3>Exercise 1: _.flatten()</h3>
+            <pre data-src="prism.js" class="language.javascript">
+                <code class="language-javascript">
+                    flattens array a single level deep.
+                    example:
+                    var result = _.flatten([1, 2, [4, 3, [6, 7], 3, 2], 9, 8]);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex1"></span>
+                <script>
+                    var result = _.flatten([1, 2, [4, 3, [6, 7], 3, 2], 9, 8]);
+                    document.getElementById("ex1").innerHTML = "output: " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 2: _.head()</h3>
+            <pre data-src="prism.js" class="language.javascript">
+                <code class="language-javascript">
+                    Gets first Element.
+                    example:
+                    var result = _.head([1,2,[4,3,[6,7],3,2],9,8]);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex2"></span>
+                <script>
+                    var result = _.head([1, 2, [4, 3, [6, 7], 3, 2], 9, 8]);
+                    document.getElementById("ex2").innerHTML = "output: " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 3: _.indexOf()</h3>
+            <pre data-src="prism.js" class="language.javascript">
+                <code class="language-javascript">
+                    Gets index of First Occurence of Element.
+                    example:
+                    var result = _.indexOf(_.flatten([1, 2, [4, 3, [6, 7], 3, 2], 9, 8]), 4);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex3"></span>
+                <script>
+                    var result = _.indexOf(_.flatten([1, 2, [4, 3, [6, 7], 3, 2], 9, 8]), 4);
+                    document.getElementById("ex3").innerHTML = "output: " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <!-- _.initial is not working  -->
+        <div class="exercise">
+            <h3>Exercise 4: _.initial()</h3>
+            <pre data-src="prism.js" class="language.javascript">
+                <code class="language-javascript">
+                    Give array excluding last element.   
+                    example:
+                    var result = _.initial([1,2,[4,3,[6,7],3,2],9,8]);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex4"></span>
+                <script>
+                    var result = _.initial([1, 2, [4, 3, [6, 7], 3, 2], 9, 8]);
+                    console.log(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 5: _.last()</h3>
+            <pre data-src="prism.js" class="language.javascript">
+                <code class="language-javascript">
+                    Give last element of array.
+                    example:
+                    var result = _.last([1, 2, [4, 3, [6, 7], 3, 2], 9, 8]);
+                </code>
+           </pre>
+            <div class="output">
+                <span id="ex5"></span>
+                <script>
+                    var result = _.last([1, 2, [4, 3, [6, 7], 3, 2], 9, 8]);
+                    document.getElementById("ex5").innerHTML = "output: " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <!-- _.nth is not working -->
+        <div class="exercise">
+            <h3>Exercise 6: _.nth()</h3>
+            <pre data-src="prism.js" class="language.javascript">
+                <code class="language-javascript">
+                    Give element at nth index. If n is -ve then nth element from end is returned.
+                    
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex6"></span>
+                <script>
+                    var result = _.nth([1, 4, 6, 8, 4, 9], 3);
+                    console.log(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 7: _.pull()</h3>
+            <pre data-src="prism.js" class="language.javascript">
+                <code class="language-javascript">
+                    Returns array by removing  given values.
+                    _.pull(array, values)
+                                
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex7"></span>
+                <script>
+                    var result = _.pull([1, 2, 4, 3, 6, 7, 3, 2, 9, 8], [6]);
+                    console.log(result);
+
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 8: _.pullAll()</h3>
+            <pre data-src="prism.js" class="language.javascript">
+                <code class="language-javascript">
+                    Returns array by removing  given values in array.
+                    example: _.pullAll(array, [array of values to be removed])
+                    
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex8"></span>
+                <script>
+                    var result = _.pullAll([1, 2, 4, 3, 6, 7, 3, 2, 9, 8], [3, 6]);
+                    console.log(result);
+                    document.getElementById("ex8").innerHTML = "output: " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 9: _.remove</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    Gives array of removed values if function returns true.
+                    _.remove(array, function);    
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex9"></span>
+                <script>
+                    var array = [3, 2, 5, 6, 8, 9]
+                    var result = _.remove(array, function (n) {
+                        return n % 2 == 0;
+                    });
+                    console.log(result);
+                    document.getElementById("ex9").innerHTML = "output: " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+
+        <div class="exercise">
+            <h3>Exercise 10: _.tail</h3>
+            <pre data-src="prism.js" class="language.javascript">
+                <code class="language-javascript">
+                    Give array excluding first element.
+                    example:
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex10"></span>
+                <script>
+                    var result = _.tail([1, 2, 4, 3, 6, 7, 3, 2, 9, 8]);
+                    document.getElementById("ex10").innerHTML = "output: " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 11: _.union()</h3>
+            <pre data-src="prism.js" class="language.javascript">
+                <code class="language-javascript">
+                    Give array of unique values of all arrays.
+                    example:
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex11"></span>
+                <script>
+                    var result = _.union([2, 4], [3, 4, 6, 7]);
+                    document.getElementById("ex11").innerHTML = "output: " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 12: _.concat()</h3>
+            <pre data-src="prism.js" class="language.javascript">
+                <code class="language-javascript">
+                    Give array by concatenating additional values or array.
+                    example:
+                    var result = _.concat([2,4], [5,7]);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex12"></span>
+                <script>
+                    var result = _.concat([2,4], [5,7]);
+                    document.getElementById("ex12").innerHTML = "output: " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 13: _.without()</h3>
+            <pre data-src="prism.js" class="language.javascript">
+                <code class="language-javascript">
+                    Give array excluding given values.
+                    example:
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex13"></span>
+                <script>
+                    var result = _.without([2,3,4,3], 2);
+                    document.getElementById("ex13").innerHTML = "output: " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
