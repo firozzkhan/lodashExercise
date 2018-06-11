@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="prism.css">
     <script src="prism.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js"></script>
     <title>Prism</title>
     <style>
         .exercise {
@@ -80,7 +80,6 @@
             </div>
         </div>
 
-        <!-- _.initial is not working  -->
         <div class="exercise">
             <h3>Exercise 4: _.initial()</h3>
             <pre data-src="prism.js" class="language.javascript">
@@ -94,7 +93,8 @@
                 <span id="ex4"></span>
                 <script>
                     var result = _.initial([1, 2, [4, 3, [6, 7], 3, 2], 9, 8]);
-                    console.log(result);
+                    //console.log(result);
+                    document.getElementById("ex4").innerHTML = "output: " + JSON.stringify(result);
                 </script>
             </div>
         </div>
@@ -117,12 +117,14 @@
             </div>
         </div>
 
-        <!-- _.nth is not working -->
         <div class="exercise">
             <h3>Exercise 6: _.nth()</h3>
             <pre data-src="prism.js" class="language.javascript">
                 <code class="language-javascript">
-                    Give element at nth index. If n is -ve then nth element from end is returned.
+                    Give element at nth index.
+                    If n is -ve then nth element from end is returned.
+                    example:
+                    var result = _.nth([1, 4, 6, 8, 4, 9], 3);
                     
                 </code>
             </pre>
@@ -130,7 +132,8 @@
                 <span id="ex6"></span>
                 <script>
                     var result = _.nth([1, 4, 6, 8, 4, 9], 3);
-                    console.log(result);
+                    //console.log(result);
+                    document.getElementById("ex6").innerHTML = "output: " + JSON.stringify(result);
                 </script>
             </div>
         </div>
@@ -140,16 +143,17 @@
             <pre data-src="prism.js" class="language.javascript">
                 <code class="language-javascript">
                     Returns array by removing  given values.
-                    _.pull(array, values)
+                    example:
+                    var result = _.pull([1, 2, 4, 3, 6, 7, 3, 2, 9, 8], 6);
                                 
                 </code>
             </pre>
             <div class="output">
                 <span id="ex7"></span>
                 <script>
-                    var result = _.pull([1, 2, 4, 3, 6, 7, 3, 2, 9, 8], [6]);
-                    console.log(result);
-
+                    var result = _.pull([1, 2, 4, 3, 6, 7, 3, 2, 9, 8], 6);
+                    //console.log(result);
+                    document.getElementById("ex7").innerHTML = "output: " + JSON.stringify(result);
                 </script>
             </div>
         </div>
@@ -159,15 +163,16 @@
             <pre data-src="prism.js" class="language.javascript">
                 <code class="language-javascript">
                     Returns array by removing  given values in array.
-                    example: _.pullAll(array, [array of values to be removed])
+                    example:
+                    var result = _.pullAll([1, 2, 4, 3, 6, 7, 3, 2, 9, 8], [3, 6, 7]);
                     
                 </code>
             </pre>
             <div class="output">
                 <span id="ex8"></span>
                 <script>
-                    var result = _.pullAll([1, 2, 4, 3, 6, 7, 3, 2, 9, 8], [3, 6]);
-                    console.log(result);
+                    var result = _.pullAll([1, 2, 4, 3, 6, 7, 3, 2, 9, 8], [3, 6, 7]);
+                    //console.log(result);
                     document.getElementById("ex8").innerHTML = "output: " + JSON.stringify(result);
                 </script>
             </div>
@@ -178,7 +183,11 @@
             <pre data-src="prism.js" class="language-javascript">
                 <code class="language-javascript">
                     Gives array of removed values if function returns true.
-                    _.remove(array, function);    
+                    example:  
+                    var array = [3, 2, 5, 6, 8, 9]
+                    var result = _.remove(array, function (n) {
+                        return n % 2 == 0;
+                    });  
                 </code>
             </pre>
             <div class="output">
@@ -188,7 +197,7 @@
                     var result = _.remove(array, function (n) {
                         return n % 2 == 0;
                     });
-                    console.log(result);
+                    //console.log(result);
                     document.getElementById("ex9").innerHTML = "output: " + JSON.stringify(result);
                 </script>
             </div>
@@ -201,6 +210,7 @@
                 <code class="language-javascript">
                     Give array excluding first element.
                     example:
+                    var result = _.tail([1, 2, 4, 3, 6, 7, 3, 2, 9, 8]);
                 </code>
             </pre>
             <div class="output">
@@ -218,6 +228,7 @@
                 <code class="language-javascript">
                     Give array of unique values of all arrays.
                     example:
+                    var result = _.union([2, 4], [3, 4, 6, 7]);
                 </code>
             </pre>
             <div class="output">
@@ -253,41 +264,449 @@
                 <code class="language-javascript">
                     Give array excluding given values.
                     example:
+                    var result = _.without([2, 3, 4, 3, 2], 2);
                 </code>
             </pre>
             <div class="output">
                 <span id="ex13"></span>
                 <script>
-                    var result = _.without([2, 3, 4, 3], 2);
+                    var result = _.without([2, 3, 4, 3, 2], 2);
                     document.getElementById("ex13").innerHTML = "output: " + JSON.stringify(result);
                 </script>
             </div>
         </div>
-    </div>
-
-    <div class="container2">
-        <h3 style="text-align: center">Collection Methods</h3>
 
         <div class="exercise">
-            <h3>Exercise 1: _.forEach</h3>
+            <h3>Exercise 14: _.forEach</h3>
             <pre data-src="prism.js" class="language-javascript">
                 <code class="language-javascript">
-
+                    var a = [2,4,7,9];
+                    var result = _.forEach(a, function(n) {
+                        console.log(n);
+                    });
                 </code>
             </pre>
             <div class="output">
-                <span id="ex1C"></span>
+                <span id="ex14"></span>
                 <script>
-                    
-                    var a = [2,4,7,9];
-                    var result = _.forEach(a, function(n){
+                    var a = [2, 4, 7, 9];
+                    var result = _.forEach(a, function (n) {
                         console.log(n);
                     });
-                    
-                    //document.getElementById("ex1C").innerHTML = "output:    " + JSON.stringify(result);
+                    //console.log(result);
+                    document.getElementById("ex14").innerHTML = "output:    " + JSON.stringify(result);
                 </script>
             </div>
         </div>
+
+        <div class="exercise">
+            <h3>Exercise 15: _.clone</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var obj = [
+                    {'a':12},
+                    {'b':15}
+                    ];
+                    var result = _.clone(obj);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex15"></span>
+                <script>
+                    var obj = [
+                        { 'a': 12 },
+                        { 'b': 15 }
+                    ];
+                    var result = _.clone(obj);
+                    document.getElementById("ex15").innerHTML = "output: " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 16: _.isArray</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var a = [22,44,31];
+                    var result = _.isArray(a);
+                    console.log(result);
+                </code>
+                </pre>
+            <div class="output">
+                <span id="ex16"></span>
+                <script>
+                    var a = [22, 44, 31];
+                    var result = _.isArray(a);
+                    //console.log(result);
+                    document.getElementById("ex16").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 17: _.isEmpty</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var result = _.isEmpty([22,32,12]);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex17"></span>
+                <script>
+                    var result = _.isEmpty([22, 32, 12]);
+                    document.getElementById("ex17").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 18: _.isNull</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var result = _.isNull(null);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex18"></span>
+                <script>
+                    var result = _.isNull(null);
+                    document.getElementById("ex18").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 19: _.isNumber</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var result = _.isNumber(54);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex19"></span>
+                <script>
+                    var result = _.isNumber(54);
+                    document.getElementById("ex19").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 20: _.toNumber</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var result = _.toNumber('55.6');
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex20"></span>
+                <script>
+                    var result = _.toNumber('55.6');
+                    //console.log(result);
+                    document.getElementById("ex20").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 21: _.random</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var result = _.round(_.random(0, 10, true), 2);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex21"></span>
+                <script>
+                    var result = _.round(_.random(0, 10, true), 2);
+                    //console.log(result);
+                    document.getElementById("ex21").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 22: _.assign()</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var a = { 'a': 10 };
+                    var b = { 'b': 25 };
+                    var result = _.assign({ 'c': 45 }, a, b);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex22"></span>
+                <script>
+                    var a = { 'a': 10 };
+                    var b = { 'b': 25 };
+                    var result = _.assign({ 'c': 45 }, a, b);
+                    //console.log(result);
+                    document.getElementById("ex22").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 23: _.get</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var obj = {'a': [{'b':12},{'c':{'d':20}}]};
+                    var result = _.get(obj, 'a[0].b', ['path not found']);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex23"></span>
+                <script>
+                    var obj = { 'a': [{ 'b': 12 }, { 'c': { 'd': 20 } }] };
+                    var result = _.get(obj, 'a[0].b', ['path not found']);
+                    //console.log(result);
+                    document.getElementById("ex23").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 24: _.has</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var obj = { 'a': 5, 'b': 10  };
+                    var result = _.has(obj, 'a');
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex24"></span>
+                <script>
+                    var obj = { 'a': 5, 'b': 10 };
+                    var result = _.has(obj, 'a');
+                    //console.log(result);
+                    document.getElementById("ex24").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 25: _.keys()</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var obj = {'a': 20, 'b': 30};
+                    var result = _.keys(obj);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex25"></span>
+                <script>
+                    var obj = { 'a': 20, 'b': 30 };
+                    var result = _.keys(obj);
+                    //console.log(result);
+                    document.getElementById("ex25").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 26: _.values()</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                    <code class="language-javascript">
+                        var obj = {'a': 20, 'b': 30};
+                        var result = _.values(obj);
+                    </code>
+                </pre>
+            <div class="output">
+                <span id="ex26"></span>
+                <script>
+                    var obj = { 'a': 20, 'b': 30 };
+                    var result = _.values(obj);
+                    //console.log(result);
+                    document.getElementById("ex26").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 27: _.mapKeys</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var result = _.mapKeys({ 'a': 10, 'b': 15, 'c': 20 }, function (value, key) {
+                        return key + value;
+                    });
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex27"></span>
+                <script>
+                    var result = _.mapKeys({ 'a': 10, 'b': 15, 'c': 20 }, function (value, key) {
+                        return key + value;
+                    });
+                    //console.log(result);
+                    document.getElementById("ex27").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 28: _.mapValues</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                        var obj = {
+                            1: { "user": 'Yash', 'surname': 'Jangid' },
+                            2: { 'user': 'Firoz', 'surname': 'Khan' }
+                        }
+                        var result = _.mapValues(obj, function (n) {
+                            return n.surname;
+                        });
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex28"></span>
+                <script>
+                    var obj = {
+                        1: { "user": 'Yash', 'surname': 'Jangid' },
+                        2: { 'user': 'Firoz', 'surname': 'Khan' }
+                    }
+                    var result = _.mapValues(obj, function (n) {
+                        return n.surname;
+                    });
+                    // console.log(result);
+                    document.getElementById("ex28").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 29: _.merge</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var Yash = {
+                        1: { "user1": 'Yash', 'surname':'Jangid'}
+                    }
+                    var Firoz = {
+                        2: {'user2':'Firoz', 'surname': 'Khan'}
+                    }
+                    var result = _.merge(Yash, Firoz);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex29"></span>
+                <script>
+                    var Yash = {
+                        1: { "user1": 'Yash', 'surname': 'Jangid' }
+                    }
+                    var Firoz = {
+                        2: { 'user2': 'Firoz', 'surname': 'Khan' }
+                    }
+                    var result = _.merge(Yash, Firoz);
+                    //console.log(result);
+                    document.getElementById("ex29").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 30: _.omit</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var obj = {'a': 12, 'b': 15, 'c':18, 'd': 21};
+                    var result = _.omit(obj, ['a','c']);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex30"></span>
+                <script>
+                    var obj = { 'a': 12, 'b': 15, 'c': 18, 'd': 21 };
+                    var result = _.omit(obj, ['a', 'c']);
+                    console.log(result);
+                    document.getElementById("ex30").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 31: _.pick</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                    <code class="language-javascript">
+                        var obj = {'a': 12, 'b': 15, 'c':18, 'd': 21};
+                        var result = _.pick(obj, ['a','c']);
+                    </code>
+                </pre>
+            <div class="output">
+                <span id="ex31"></span>
+                <script>
+                    var obj = { 'a': 12, 'b': 15, 'c': 18, 'd': 21 };
+                    var result = _.pick(obj, ['a', 'c']);
+                    //console.log(result);
+                    document.getElementById("ex31").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 32: _.lowerCase</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                        var result = _.lowerCase('I hAve Used PRism.Js in this Projrct.');
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex32"></span>
+                <script>
+                    var result = _.lowerCase('I hAve Used PRism.Js in this Projrct.');
+                    //console.log(result);
+                    document.getElementById("ex32").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 33: _.upperCase</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var result = _.upperCase("aithix tech solutions.");
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex33"></span>
+                <script>
+                    var result = _.upperCase("aithix tech solutions.");
+                    //console.log(result);
+                    document.getElementById("ex33").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 34: _.toLower</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var result = _.upperCase("AITHIS TECH SOLUTIONS.");
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex34"></span>
+                <script>
+                    var result = _.toLower("AITHIS TECH SOLUTIONS.");
+                    //console.log(result);
+                    document.getElementById("ex34").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 34: _.toUpper</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var result = _.toUpper("aithix tech solutions.");
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex35"></span>
+                <script>
+                    var result = _.toUpper("aithix tech solutions.");
+                    //console.log(result);
+                    document.getElementById("ex35").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
     </div>
 </body>
 
