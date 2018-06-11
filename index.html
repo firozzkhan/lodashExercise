@@ -26,30 +26,11 @@
 <body>
     <div class="container">
         <h3 style="text-align: center">Array Methods</h3>
-        <script>
-
-        </script>
-
-        <!-- <div class="exercise">
-            <h3>Exercise : _.</h3>
-            <pre data-src="prism.js" class="language-javascript">
-                <code class="language-javascript">
-
-                </code>
-            </pre>
-            <div class="output">
-                <span id="ex"></span>
-                <script>
-
-                </script>
-            </div>
-        </div>           -->
-
         <div class="exercise">
             <h3>Exercise 1: _.flatten()</h3>
             <pre data-src="prism.js" class="language.javascript">
                 <code class="language-javascript">
-                    flattens array a single level deep.
+                    Flattens array a single level deep.
                     example:
                     var result = _.flatten([1, 2, [4, 3, [6, 7], 3, 2], 9, 8]);
                 </code>
@@ -260,7 +241,7 @@
             <div class="output">
                 <span id="ex12"></span>
                 <script>
-                    var result = _.concat([2,4], [5,7]);
+                    var result = _.concat([2, 4], [5, 7]);
                     document.getElementById("ex12").innerHTML = "output: " + JSON.stringify(result);
                 </script>
             </div>
@@ -277,12 +258,36 @@
             <div class="output">
                 <span id="ex13"></span>
                 <script>
-                    var result = _.without([2,3,4,3], 2);
+                    var result = _.without([2, 3, 4, 3], 2);
                     document.getElementById("ex13").innerHTML = "output: " + JSON.stringify(result);
                 </script>
             </div>
         </div>
+    </div>
 
+    <div class="container2">
+        <h3 style="text-align: center">Collection Methods</h3>
+
+        <div class="exercise">
+            <h3>Exercise 1: _.forEach</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex1C"></span>
+                <script>
+                    
+                    var a = [2,4,7,9];
+                    var result = _.forEach(a, function(n){
+                        console.log(n);
+                    });
+                    
+                    //document.getElementById("ex1C").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
     </div>
 </body>
 
