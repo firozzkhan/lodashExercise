@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="prism.css">
     <script src="prism.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js"></script>
-    <title>Prism</title>
+    <title>Learning Lodash Methods</title>
     <style>
         .exercise {
             width: 80%;
@@ -649,7 +649,7 @@
             <div class="output">
                 <span id="ex32"></span>
                 <script>
-                    var result = _.lowerCase('I hAve Used PRism.Js in this Projrct.');
+                    var result = _.lowerCase('IhAveUsed PRism.Js in this Projrct.');
                     //console.log(result);
                     document.getElementById("ex32").innerHTML = "output:    " + JSON.stringify(result);
                 </script>
@@ -677,13 +677,13 @@
             <h3>Exercise 34: _.toLower</h3>
             <pre data-src="prism.js" class="language-javascript">
                 <code class="language-javascript">
-                    var result = _.upperCase("AITHIS TECH SOLUTIONS.");
+                    var result = _.upperCase("aithix TECH SOLUTIONS.");
                 </code>
             </pre>
             <div class="output">
                 <span id="ex34"></span>
                 <script>
-                    var result = _.toLower("AITHIS TECH SOLUTIONS.");
+                    var result = _.toLower("aithix TECH SOLUTIONS.");
                     //console.log(result);
                     document.getElementById("ex34").innerHTML = "output:    " + JSON.stringify(result);
                 </script>
@@ -706,6 +706,157 @@
                 </script>
             </div>
         </div>
+
+        <div class="exercise">
+            <h3>Exercise 36: _.map()</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var result = _.map([12,13], function(n){
+                        return n*n;
+                    });
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex36"></span>
+                <script>
+                    var result = _.map([12, 13], function (n) {
+                        return n * n;
+                    });
+                    //console.log(result);
+                    document.getElementById("ex36").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 37: _.sum()</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var result = _.sum([12, 13,32,21]);
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex37"></span>
+                <script>
+                    var result = _.sum([12, 13, 32, 21]);
+                    //console.log(result);
+                    document.getElementById("ex37").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 38: _.includes()</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                    <code class="language-javascript">
+                        var result = _.includes([12, 13, 32, 21], 13);
+                    </code>
+                </pre>
+            <div class="output">
+                <span id="ex38"></span>
+                <script>
+                    var result = _.includes([12, 13, 32, 21], 13);
+                    //console.log(result);
+                    document.getElementById("ex38").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 39: _.every()</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var users = [
+                        {'user': 'Yash', 'status': 'active'},
+                        {'user': 'Firoz', 'status': 'active'}
+                    ];
+                    var result = _.every(users, {'status': 'active'});
+                </code>
+            </pre>
+            <div class="output">
+                <span id="ex39"></span>
+                <script>
+                    var users = [
+                        { 'user': 'Yash', 'status': 'active' },
+                        { 'user': 'Firoz', 'status': 'active' }
+                    ];
+                    var result = _.every(users, { 'status': 'active' });
+                    //console.log(result);
+                    document.getElementById("ex39").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 40: _.filter()</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                    <code class="language-javascript">
+                        var users = [
+                            {'user': 'Yash', 'status': 'active'},
+                            {'user': 'Firoz', 'status': 'active'},
+                            {'user': 'Laveesh', 'status': 'away'}
+                        ];
+                        var result = _.filter(users, {'status': 'active'});
+                    </code>
+                </pre>
+            <div class="output">
+                <span id="ex40"></span>
+                <script>
+                    var users = [
+                        { 'user': 'Yash', 'status': 'active' },
+                        { 'user': 'Firoz', 'status': 'active' },
+                        { 'user': 'Laveesh', 'status': 'away' }
+                    ];
+                    var result = _.filter(users, { 'status': 'active' });
+                    //console.log(result);
+                    document.getElementById("ex40").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 41: _.find()</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                        <code class="language-javascript">
+                            var users = [
+                                {'user': 'Yash', 'status': 'active'},
+                                {'user': 'Firoz', 'status': 'active'},
+                                {'user': 'Laveesh', 'status': 'away'}
+                            ];
+                            var result = _.filter(users, {'status': 'active'});
+                        </code>
+                    </pre>
+            <div class="output">
+                <span id="ex41"></span>
+                <script>
+                    var users = [
+                        { 'user': 'Yash', 'status': 'active' },
+                        { 'user': 'Firoz', 'status': 'active' },
+                        { 'user': 'Laveesh', 'status': 'away' }
+                    ];
+                    var result = _.find(users, { 'status': 'away' });
+                    //console.log(result);
+                    document.getElementById("ex41").innerHTML = "output:    " + JSON.stringify(result);
+                </script>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 42: _.pad</h3>
+            <pre data-src="prism.js" class="language-javascript">
+                <code class="language-javascript">
+                    var result = _.pad('Aithix Tech Solutions', 10, '--');
+                </code>
+            </pre>
+                <div class="output">
+                    <span id="ex42"></span>
+                    <script>
+                        var result = _.pad(' shanti ', 12, 'om');
+                        console.log(result);
+                        document.getElementById("ex42").innerHTML = "output:    " + JSON.stringify(result);
+                    </script>
+                </div>
+            </div>
 
     </div>
 </body>
